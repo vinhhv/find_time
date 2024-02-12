@@ -14,6 +14,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -55,6 +56,60 @@ fun MainView(actionBarFun: topBarFun = { EmptyComposable() }) {
   val currentTimezoneStrings = remember { SnapshotStateList<String>() }
   val selectedIndex = remember { mutableIntStateOf(0) }
   MyApplicationTheme {
-    // TODO: Add Scaffold
+    Scaffold(
+      topBar = {
+        actionBarFun(selectedIndex.intValue)
+      },
+      floatingActionButton = {
+        if (selectedIndex.intValue == 0) {
+          FloatingActionButton(
+            modifier = Modifier.padding(16.dp),
+            shape = FloatingActionButtonDefaults.largeShape,
+            containerColor = MaterialTheme.colorScheme.secondary,
+            onClick = {
+              showAddDialog.value = true
+            }
+          ) {
+            Icon(
+              imageVector = Icons.Default.Add,
+              contentDescription = "Add Timezone"
+            )
+          }
+        }
+      },
+      bottomBar = {
+        NavigationBar(
+          containerColor = MaterialTheme.colorScheme.primary
+        ) {
+          bottomNavigationItems.forEachIndexed { i, bottomNavigationItem ->
+            NavigationBarItem(
+              colors = NavigationBarItemDefaults.colors(
+                selectedIconColor = Color.White,
+                selectedTextColor = Color.White,
+                unselectedIconColor = Color.Black,
+                unselectedTextColor = Color.Black,
+                indicatorColor = MaterialTheme.colorScheme.primary,
+              ),
+              label = {
+                Text(bottomNavigationItem.route, style = MaterialTheme.typography.bodyMedium)
+              },
+              icon = {
+                Icon(bottomNavigationItem.icon, contentDescription = bottomNavigationItem.iconContentDescription)
+              },
+              selected = selectedIndex.intValue == i,
+              onClick = {
+                selectedIndex.intValue = i
+              }
+            )
+          }
+        }
+      }
+    ) {
+      padding ->
+        Box(modifier = Modifier.padding(padding)) {
+          // TODO: Replace with Dialog
+          // TODO: Replace with screens
+        }
+      }
   }
 }
