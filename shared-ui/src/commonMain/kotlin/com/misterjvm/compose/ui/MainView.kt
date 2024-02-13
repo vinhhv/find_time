@@ -24,7 +24,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
-import com.misterjvm.findtime.android.MyApplicationTheme
 
 sealed class Screen(val title: String) {
     object TimeZonesScreen : Screen("Timezones")

@@ -13,6 +13,7 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -30,6 +31,7 @@ import kotlinx.coroutines.delay
 
 const val TIME_MILLIS = 1000 * 60L // 1 second
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TimeZoneScreen(currentTimezoneStrings: SnapshotStateList<String>) {
     val timezoneHelper: TimeZoneHelper = TimeZoneHelperImpl()

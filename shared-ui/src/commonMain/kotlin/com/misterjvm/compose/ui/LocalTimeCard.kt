@@ -19,8 +19,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.misterjvm.findtime.android.endGradientColor
-import com.misterjvm.findtime.android.startGradientColor
 
 @Composable
 fun LocalTimeCard(
