@@ -1,4 +1,4 @@
-package com.misterjvm.findtime.android.ui
+package com.misterjvm.compose.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues

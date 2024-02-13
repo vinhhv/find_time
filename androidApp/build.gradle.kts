@@ -35,20 +35,21 @@ android {
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
-        freeCompilerArgs = freeCompilerArgs + listOf(
-            "-opt-in=androidx.compose.animation.ExperimentalAnimationApi",
-            "-opt-in=androidx.compose.ui.ExperimentalComposeUiApi",
-            "-opt-in=androidx.compose.material.ExperimentalMaterialApi",
-            "-opt-in=androidx.lifecycle.viewmodel.compose.SavedStateHandleSaveableApi",
-            "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
-        )
-
+        freeCompilerArgs = freeCompilerArgs +
+            listOf(
+                "-opt-in=androidx.compose.animation.ExperimentalAnimationApi",
+                "-opt-in=androidx.compose.ui.ExperimentalComposeUiApi",
+                "-opt-in=androidx.compose.material.ExperimentalMaterialApi",
+                "-opt-in=androidx.lifecycle.viewmodel.compose.SavedStateHandleSaveableApi",
+                "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+            )
     }
 }
 
 dependencies {
     // 1
     implementation(project(":shared"))
+    implementation(project(":shared-ui"))
     // 2
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose.ui)
