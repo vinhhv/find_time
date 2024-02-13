@@ -1,6 +1,9 @@
 package com.misterjvm.compose.ui
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.DpSize
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogWindow
 import androidx.compose.ui.window.rememberDialogState
 
@@ -12,7 +15,7 @@ actual fun MeetingDialogWrapper(
     DialogWindow(
         onCloseRequest = { onDismiss() },
         title = "Meetings",
-        state = rememberDialogState(),
+        state = rememberDialogState(size = DpSize(width = 400.dp, height = Dp.Unspecified)),
         content = { content() },
     )
 }

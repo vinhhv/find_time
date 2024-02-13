@@ -25,7 +25,7 @@ kotlin {
 
                 // 6
                 implementation(project(":shared"))
-                // implementation(project(":shared-ui"))
+                implementation(project(":shared-ui"))
             }
         }
     }
