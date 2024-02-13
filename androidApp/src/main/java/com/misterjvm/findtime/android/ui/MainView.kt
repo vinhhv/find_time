@@ -107,8 +107,25 @@ fun MainView(actionBarFun: topBarFun = { EmptyComposable() }) {
     ) {
       padding ->
         Box(modifier = Modifier.padding(padding)) {
-          // TODO: Replace with Dialog
-          // TODO: Replace with screens
+          if (showAddDialog.value) {
+            AddTimeZoneDialog(
+              onAdd = { newTimezones ->
+                showAddDialog.value = false
+                for (zone in newTimezones) {
+                  if (!currentTimezoneStrings.contains(zone)) {
+                    currentTimezoneStrings.add(zone)
+                  }
+                }
+              },
+              onDismiss = {
+                showAddDialog.value = false
+              }
+            )
+          }
+          when (selectedIndex.intValue) {
+            0 -> TimeZoneScreen(currentTimezoneStrings)
+            // 1 -> FindMeetingScreen(currentTimezoneStrings)
+          }
         }
       }
   }
