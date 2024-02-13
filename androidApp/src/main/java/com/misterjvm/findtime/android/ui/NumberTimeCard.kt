@@ -18,20 +18,23 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun NumberTimeCard(label: String, hour: MutableState<Int>) {
-  Card(
-    shape = RoundedCornerShape(8.dp),
-    colors = CardDefaults.cardColors(containerColor = Color.White),
-    border = BorderStroke(1.dp, Color.Black)
-  ) {
-    Row(modifier = Modifier.padding(16.dp)) {
-      Text(
-        modifier = Modifier.align(Alignment.CenterVertically),
-        text = label,
-        style = MaterialTheme.typography.bodySmall.copy(color = Color.Black)
-      )
-      Spacer(modifier = Modifier.size(16.dp))
-      NumberPicker(hour = hour, range = IntRange(0, 23), onStateChanged = {hour.value = it})
+fun NumberTimeCard(
+    label: String,
+    hour: MutableState<Int>,
+) {
+    Card(
+        shape = RoundedCornerShape(8.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White),
+        border = BorderStroke(1.dp, Color.Black),
+    ) {
+        Row(modifier = Modifier.padding(16.dp)) {
+            Text(
+                modifier = Modifier.align(Alignment.CenterVertically),
+                text = label,
+                style = MaterialTheme.typography.bodySmall.copy(color = Color.Black),
+            )
+            Spacer(modifier = Modifier.size(16.dp))
+            NumberPicker(hour = hour, range = IntRange(0, 23), onStateChanged = { hour.value = it })
+        }
     }
-  }
 }

@@ -23,54 +23,81 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun TimeCard(timezone: String, hours: Double, time: String, date: String) {
-  Box(
-    modifier = Modifier
-      .fillMaxSize()
-      .height(120.dp)
-      .background(Color.White)
-      .padding(8.dp)
-  ) {
-    Card(
-      shape = RoundedCornerShape(8.dp),
-      border = BorderStroke(1.dp, Color.Gray),
-      modifier = Modifier.fillMaxWidth()
+fun TimeCard(
+    timezone: String,
+    hours: Double,
+    time: String,
+    date: String,
+) {
+    Box(
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .height(120.dp)
+                .background(Color.White)
+                .padding(8.dp),
     ) {
-      Box(modifier = Modifier.background(color = Color.White).padding(16.dp)) {
-        Row(modifier = Modifier.fillMaxWidth()) {
-          Column(horizontalAlignment = Alignment.Start) {
-            Text(timezone, style = TextStyle(
-              color = Color.Black,
-              fontWeight = FontWeight.Bold,
-              fontSize = 20.sp
-            ))
-            Spacer(modifier = Modifier.weight(1.0f))
-            Row {
-              Text(hours.toString(), style = TextStyle(
-                color = Color.Black,
-                fontWeight = FontWeight.Bold,
-                fontSize = 14.sp))
-              Text(" hours from local", style = TextStyle(
-                color = Color.Black,
-                fontSize = 14.sp
-              ))
+        Card(
+            shape = RoundedCornerShape(8.dp),
+            border = BorderStroke(1.dp, Color.Gray),
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Box(modifier = Modifier.background(color = Color.White).padding(16.dp)) {
+                Row(modifier = Modifier.fillMaxWidth()) {
+                    Column(horizontalAlignment = Alignment.Start) {
+                        Text(
+                            timezone,
+                            style =
+                                TextStyle(
+                                    color = Color.Black,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 20.sp,
+                                ),
+                        )
+                        Spacer(modifier = Modifier.weight(1.0f))
+                        Row {
+                            Text(
+                                hours.toString(),
+                                style =
+                                    TextStyle(
+                                        color = Color.Black,
+                                        fontWeight = FontWeight.Bold,
+                                        fontSize = 14.sp,
+                                    ),
+                            )
+                            Text(
+                                " hours from local",
+                                style =
+                                    TextStyle(
+                                        color = Color.Black,
+                                        fontSize = 14.sp,
+                                    ),
+                            )
+                        }
+                    }
+                    Spacer(modifier = Modifier.weight(1.0f))
+                    Column(horizontalAlignment = Alignment.End) {
+                        Text(
+                            time,
+                            style =
+                                TextStyle(
+                                    color = Color.Black,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 24.sp,
+                                ),
+                        )
+                        Spacer(modifier = Modifier.weight(1.0f))
+                        Text(
+                            date,
+                            style =
+                                TextStyle(
+                                    color = Color.Black,
+                                    fontSize = 12.sp,
+                                ),
+                        )
+                    }
+                }
             }
-          }
-          Spacer(modifier = Modifier.weight(1.0f))
-          Column(horizontalAlignment = Alignment.End) {
-            Text(time, style = TextStyle(
-              color = Color.Black,
-              fontWeight = FontWeight.Bold,
-              fontSize = 24.sp
-            ))
-            Spacer(modifier = Modifier.weight(1.0f))
-            Text(date, style = TextStyle(
-              color = Color.Black,
-              fontSize = 12.sp
-            ))
-          }
         }
-      }
     }
-  }
 }
